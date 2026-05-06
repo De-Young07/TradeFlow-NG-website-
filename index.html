@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" type="image/png" href="TradeFlow logo.png">
-<link rel="apple-touch-icon" href="TradeFlow logo.png">
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="apple-touch-icon" href="logo-icon.png">
 <title>TradeFlow NG — Agricultural Trade Intelligence for Nigeria</title>
 <meta name="description" content="AI-powered platform that tells Nigerian traders exactly what to buy, where to buy it, and where to sell for maximum profit. Every week.">
 <meta property="og:title" content="TradeFlow NG — Agricultural Trade Intelligence">
 <meta property="og:description" content="AI-powered platform that tells Nigerian traders exactly where to sell for maximum profit.">
-<meta property="og:image" content="https://tradeflowng.com/TradeFlow profile.png">
+<meta property="og:image" content="https://tradeflowng.com/logo-full.png">
 <meta property="og:url" content="https://tradeflowng.com">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   /* ── Reset & Base ───────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -33,8 +33,8 @@
     --white: #FFFFFF;
     --border: rgba(26,107,60,0.15);
     --radius: 16px;
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'DM Sans', sans-serif;
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
@@ -1259,18 +1259,16 @@
   <a href="#" class="nav-logo">
     <img src="TradeFlow logo.png" alt="TradeFlow NG" 
      style="width:36px;height:36px;border-radius:10px;object-fit:contain;">
-    <span class="nav-logo-text">TradeFlow NG</span>
   </a>
   <ul class="nav-links">
     <li><a href="#how">How It Works</a></li>
-    <li><a href="#traders">For Traders</a></li>
-    <li><a href="#agents">For Agents</a></li>
+    <li><a href="traders.html">For Traders</a></li>
+    <li><a href="agents.html">For Agents</a></li>
     <li><a href="#coverage">Coverage</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="https://tradeflow-ng-dash.streamlit.app" class="nav-cta">Access Platform →</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="https://tradeflow-agents.streamlit.app" class="nav-cta">Agent Login →</a></li>
   </ul>
-  <button class="nav-mobile-btn" id="menuBtn" onclick="toggleMobileMenu()" aria-label="Open menu">
+  <button class="nav-mobile-btn" onclick="this.nextElementSibling && alert('Menu')">
     <svg width="22" height="16" viewBox="0 0 22 16" fill="none">
       <rect y="0" width="22" height="2.5" rx="1.25" fill="#1A6B3C"/>
       <rect y="6.75" width="16" height="2.5" rx="1.25" fill="#1A6B3C"/>
@@ -1278,29 +1276,6 @@
     </svg>
   </button>
 </nav>
-
-<!-- Mobile Menu Drawer -->
-<div id="mobileMenu" style="
-  display:none;position:fixed;top:64px;left:0;right:0;z-index:99;
-  background:rgba(247,244,238,0.98);backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(26,107,60,0.12);
-  padding:1.5rem 2rem 2rem;
-  box-shadow:0 8px 32px rgba(13,31,20,0.12);
-">
-  <ul style="list-style:none;display:flex;flex-direction:column;gap:0.2rem;margin-bottom:1.2rem;">
-    <li><a href="#how" onclick="closeMobileMenu()" style="display:block;padding:0.8rem 0;font-size:1rem;font-weight:500;color:#1A1A1A;text-decoration:none;border-bottom:1px solid rgba(26,107,60,0.08);">How It Works</a></li>
-    <li><a href="#traders" onclick="closeMobileMenu()" style="display:block;padding:0.8rem 0;font-size:1rem;font-weight:500;color:#1A1A1A;text-decoration:none;border-bottom:1px solid rgba(26,107,60,0.08);">For Traders</a></li>
-    <li><a href="#agents" onclick="closeMobileMenu()" style="display:block;padding:0.8rem 0;font-size:1rem;font-weight:500;color:#1A1A1A;text-decoration:none;border-bottom:1px solid rgba(26,107,60,0.08);">For Agents</a></li>
-    <li><a href="#coverage" onclick="closeMobileMenu()" style="display:block;padding:0.8rem 0;font-size:1rem;font-weight:500;color:#1A1A1A;text-decoration:none;border-bottom:1px solid rgba(26,107,60,0.08);">Coverage</a></li>
-    <li><a href="#about" onclick="closeMobileMenu()" style="display:block;padding:0.8rem 0;font-size:1rem;font-weight:500;color:#1A1A1A;text-decoration:none;border-bottom:1px solid rgba(26,107,60,0.08);">About</a></li>
-    <li><a href="#contact" onclick="closeMobileMenu()" style="display:block;padding:0.8rem 0;font-size:1rem;font-weight:500;color:#1A1A1A;text-decoration:none;">Contact</a></li>
-  </ul>
-  <div style="display:flex;flex-direction:column;gap:0.8rem;">
-    <a href="https://tradeflow-ng-dash.streamlit.app" style="display:block;background:#1A6B3C;color:#fff;padding:0.9rem 1.5rem;border-radius:10px;font-weight:700;text-decoration:none;text-align:center;font-size:0.95rem;">Access Platform →</a>
-    <a href="https://tradeflow-ng-agent.streamlit.app" style="display:block;border:1.5px solid rgba(26,107,60,0.3);color:#1A6B3C;padding:0.9rem 1.5rem;border-radius:10px;font-weight:600;text-decoration:none;text-align:center;font-size:0.95rem;">Join as Agent</a>
-    <a href="https://wa.me/2349152245475?text=Hi%20TradeFlow%20NG%2C%20I%20want%20to%20learn%20more" style="display:flex;align-items:center;justify-content:center;gap:0.5rem;background:#25D366;color:#fff;padding:0.9rem 1.5rem;border-radius:10px;font-weight:700;text-decoration:none;font-size:0.95rem;">💬 Chat on WhatsApp</a>
-  </div>
-</div>
 
 <!-- ══ HERO ══════════════════════════════════════════════════ -->
 <section style="padding: 0; background: var(--cream);">
@@ -1500,7 +1475,7 @@
             </div>
           </li>
         </ul>
-        <a href="https://tradeflow-ng-dash.streamlit.app" class="btn-primary" style="margin-top: 2.5rem; display: inline-flex;">Access Platform →</a>
+        <a href="https://tradeflow-admin.streamlit.app" class="btn-primary" style="margin-top: 2.5rem; display: inline-flex;">Access Platform →</a>
       </div>
 
       <div class="trader-visual reveal">
@@ -1540,7 +1515,7 @@
         <div class="section-tag">For Agents</div>
         <h2 class="section-title">Earn by reporting prices in your market</h2>
         <p class="section-sub" style="margin-top: 1rem;">Join Nigeria's most active agricultural price intelligence network. Visit your local market weekly, submit prices through our mobile form, and earn a monthly stipend — no office required.</p>
-        <a href="https://tradeflow-ng-agent.streamlit.app" class="agents-cta">Join the Network →</a>
+        <a href="https://tradeflow-agents.streamlit.app" class="agents-cta">Join the Network →</a>
       </div>
 
       <div class="earn-cards reveal">
@@ -1667,101 +1642,7 @@
   </div>
 </section>
 
-<!-- ══ CONTACT ════════════════════════════════════════════════ -->
-<section id="contact" style="background:var(--cream);padding:6rem 2rem;">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;" class="contact-grid">
-      <div class="reveal">
-        <div class="section-tag">Get In Touch</div>
-        <h2 class="section-title">Let's build something<br>that matters.</h2>
-        <p style="font-size:1.05rem;color:var(--muted);line-height:1.75;margin:1.2rem 0 2.5rem;">
-          Whether you're a trader who wants to start using the platform, an investor who sees the opportunity, a partner organisation, or a researcher — we want to hear from you.
-        </p>
-        <div style="display:flex;flex-direction:column;gap:1rem;">
-          <a href="mailto:hello@tradeflowng.com" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:#fff;border:1.5px solid rgba(26,107,60,0.12);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s;" onmouseover="this.style.borderColor='#1A6B3C'" onmouseout="this.style.borderColor='rgba(26,107,60,0.12)'">
-            <span style="width:40px;height:40px;background:rgba(26,107,60,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">✉️</span>
-            <div>
-              <div style="font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.1rem;">Email</div>
-              <div style="font-size:0.92rem;font-weight:600;color:var(--dark);">hello@tradeflowng.com</div>
-            </div>
-          </a>
-          <a href="https://wa.me/2349152245475?text=Hi%20TradeFlow%20NG%2C%20I%27d%20like%20to%20learn%20more%20about%20your%20platform" target="_blank" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:#fff;border:1.5px solid rgba(26,107,60,0.12);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s;" onmouseover="this.style.borderColor='#25D366'" onmouseout="this.style.borderColor='rgba(26,107,60,0.12)'">
-            <span style="width:40px;height:40px;background:rgba(37,211,102,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💬</span>
-            <div>
-              <div style="font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.1rem;">WhatsApp</div>
-              <div style="font-size:0.92rem;font-weight:600;color:var(--dark);">Chat with us directly</div>
-            </div>
-          </a>
-          <a href="https://linkedin.com/company/tradeflowng" target="_blank" style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:#fff;border:1.5px solid rgba(26,107,60,0.12);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s;" onmouseover="this.style.borderColor='#0077B5'" onmouseout="this.style.borderColor='rgba(26,107,60,0.12)'">
-            <span style="width:40px;height:40px;background:rgba(0,119,181,0.08);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;">💼</span>
-            <div>
-              <div style="font-size:0.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.1rem;">LinkedIn</div>
-              <div style="font-size:0.92rem;font-weight:600;color:var(--dark);">Follow our updates</div>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <div class="reveal">
-        <form id="contactForm" style="display:flex;flex-direction:column;gap:1.1rem;" onsubmit="handleContact(event)">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
-            <div>
-              <label style="font-size:0.8rem;font-weight:600;color:var(--dark);letter-spacing:0.03em;display:block;margin-bottom:0.4rem;">Name *</label>
-              <input type="text" required placeholder="Your name" style="width:100%;padding:0.8rem 1rem;border:1.5px solid rgba(26,107,60,0.15);border-radius:8px;font-family:var(--font-body);font-size:0.9rem;color:var(--text);background:#fff;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#1A6B3C'" onblur="this.style.borderColor='rgba(26,107,60,0.15)'">
-            </div>
-            <div>
-              <label style="font-size:0.8rem;font-weight:600;color:var(--dark);letter-spacing:0.03em;display:block;margin-bottom:0.4rem;">Email *</label>
-              <input type="email" required placeholder="your@email.com" style="width:100%;padding:0.8rem 1rem;border:1.5px solid rgba(26,107,60,0.15);border-radius:8px;font-family:var(--font-body);font-size:0.9rem;color:var(--text);background:#fff;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#1A6B3C'" onblur="this.style.borderColor='rgba(26,107,60,0.15)'">
-            </div>
-          </div>
-          <div>
-            <label style="font-size:0.8rem;font-weight:600;color:var(--dark);letter-spacing:0.03em;display:block;margin-bottom:0.4rem;">I am a...</label>
-            <select style="width:100%;padding:0.8rem 1rem;border:1.5px solid rgba(26,107,60,0.15);border-radius:8px;font-family:var(--font-body);font-size:0.9rem;color:var(--text);background:#fff;outline:none;appearance:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#1A6B3C'" onblur="this.style.borderColor='rgba(26,107,60,0.15)'">
-              <option>Trader looking to use the platform</option>
-              <option>Investor / Impact Fund</option>
-              <option>NGO / Development Organisation</option>
-              <option>Government / Ministry of Agriculture</option>
-              <option>Journalist / Media</option>
-              <option>Tech Partner / Developer</option>
-              <option>Researcher</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div>
-            <label style="font-size:0.8rem;font-weight:600;color:var(--dark);letter-spacing:0.03em;display:block;margin-bottom:0.4rem;">Message *</label>
-            <textarea required rows="4" placeholder="Tell us about yourself and how you'd like to work with TradeFlow NG..." style="width:100%;padding:0.8rem 1rem;border:1.5px solid rgba(26,107,60,0.15);border-radius:8px;font-family:var(--font-body);font-size:0.9rem;color:var(--text);background:#fff;outline:none;resize:vertical;transition:border-color 0.2s;" onfocus="this.style.borderColor='#1A6B3C'" onblur="this.style.borderColor='rgba(26,107,60,0.15)'"></textarea>
-          </div>
-          <button type="submit" id="contactBtn" style="background:var(--g1);color:#fff;padding:1rem 2rem;border-radius:10px;font-family:var(--font-display);font-size:0.95rem;font-weight:700;border:none;cursor:pointer;transition:all 0.25s;letter-spacing:0.02em;" onmouseover="this.style.background='#2E8B57';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#1A6B3C';this.style.transform='translateY(0)'">Send Message →</button>
-          <p style="font-size:0.78rem;color:var(--muted);text-align:center;">We reply within 24 hours. For urgent matters, use WhatsApp above.</p>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WhatsApp Floating Button -->
-<a href="https://wa.me/2349152245475?text=Hi%20TradeFlow%20NG%2C%20I%27d%20like%20to%20learn%20more" target="_blank" id="waFloat" style="
-  position:fixed;bottom:2rem;right:2rem;z-index:200;
-  width:58px;height:58px;
-  background:#25D366;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.6rem;
-  box-shadow:0 4px 20px rgba(37,211,102,0.45);
-  text-decoration:none;
-  transition:all 0.25s;
-  animation:waPulse 3s ease-in-out infinite;
-" onmouseover="this.style.transform='scale(1.12)';this.style.boxShadow='0 6px 30px rgba(37,211,102,0.6)'" onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 4px 20px rgba(37,211,102,0.45)'" title="Chat with us on WhatsApp">
-  💬
-</a>
-<style>
-@keyframes waPulse {
-  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45),0 0 0 0 rgba(37,211,102,0.3);}
-  50%{box-shadow:0 4px 20px rgba(37,211,102,0.45),0 0 0 12px rgba(37,211,102,0);}
-}
-@media(max-width:900px){
-  .contact-grid{grid-template-columns:1fr!important;}
-}
-</style>
+<!-- ══ CTA BANNER ════════════════════════════════════════════ -->
 <section class="cta-banner">
   <h2>Ready to trade smarter?</h2>
   <p>Join TradeFlow NG as a trader or field agent. Weekly recommendations. Real data. Real profit.</p>
@@ -1794,7 +1675,7 @@
         <a href="#about">About Us</a>
         <a href="#">Press</a>
         <a href="#">Research</a>
-        <a href="#contact">Contact</a>
+        <a href="#">Contact</a>
       </div>
       <div class="footer-col">
         <h4>Access</h4>
@@ -1806,36 +1687,16 @@
     <div class="footer-bottom">
       <p>© 2026 TradeFlow NG. <span>Nigeria</span>.</p>
       <div class="footer-social">
-        <a href="https://wa.me/2349152245475" target="_blank" title="WhatsApp">📱</a>
-        <a href="https://linkedin.com/company/tradeflowng" target="_blank" title="LinkedIn">💼</a>
-        <a href="https://twitter.com/tradeflowng" target="_blank" title="Twitter/X">🐦</a>
+        <a href="#" title="WhatsApp">📱</a>
+        <a href="#" title="LinkedIn">💼</a>
+        <a href="#" title="Twitter/X">🐦</a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-  // ── Mobile menu ────────────────────────────────────────────
-  function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const btn = document.getElementById('menuBtn');
-    const isOpen = menu.style.display === 'block';
-    menu.style.display = isOpen ? 'none' : 'block';
-    btn.setAttribute('aria-expanded', !isOpen);
-  }
-  function closeMobileMenu() {
-    document.getElementById('mobileMenu').style.display = 'none';
-  }
-  // Close menu on outside click
-  document.addEventListener('click', function(e) {
-    const menu = document.getElementById('mobileMenu');
-    const btn = document.getElementById('menuBtn');
-    if (menu.style.display === 'block' && !menu.contains(e.target) && !btn.contains(e.target)) {
-      menu.style.display = 'none';
-    }
-  });
-
-  // ── Scroll reveal ──────────────────────────────────────────
+  // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
@@ -1849,44 +1710,22 @@
   }, { threshold: 0.12 });
   reveals.forEach(el => observer.observe(el));
 
-  // ── Smooth scroll for anchor links ─────────────────────────
+  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       const target = document.querySelector(a.getAttribute('href'));
       if (target) {
         e.preventDefault();
-        closeMobileMenu();
         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 
-  // ── Nav shrink on scroll ───────────────────────────────────
+  // Nav shrink on scroll
   window.addEventListener('scroll', () => {
     const nav = document.querySelector('nav');
     nav.style.padding = window.scrollY > 60 ? '0.8rem 2rem' : '1.2rem 2rem';
   });
-
-  // ── Contact form handler ───────────────────────────────────
-  function handleContact(e) {
-    e.preventDefault();
-    const btn = document.getElementById('contactBtn');
-    const form = document.getElementById('contactForm');
-    btn.textContent = 'Sending...';
-    btn.style.background = '#5A6A60';
-    btn.disabled = true;
-    // Simulate send (replace with EmailJS or Formspree later)
-    setTimeout(() => {
-      btn.textContent = '✓ Message sent! We\'ll reply within 24 hours.';
-      btn.style.background = '#2D9E6B';
-      form.reset();
-      setTimeout(() => {
-        btn.textContent = 'Send Message →';
-        btn.style.background = '#1A6B3C';
-        btn.disabled = false;
-      }, 4000);
-    }, 1200);
-  }
 </script>
 </body>
 </html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Become an Agent — TradeFlow NG</title>
+<meta name="description" content="Join Nigeria's agricultural price intelligence network. Earn a monthly stipend by reporting commodity prices from your local market.">
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --g1:#1A6B3C;--g2:#2E8B57;--g3:#145C32;--glow:#3AB069;
+  --amber:#E07B00;--amber-l:#FFF3DC;--cream:#F7F4EE;
+  --dark:#0D1F14;--text:#1A1A1A;--muted:#5A6A60;
+  --white:#FFFFFF;--border:rgba(26,107,60,0.15);--radius:16px;
+  --font-display:'Plus Jakarta Sans',sans-serif;
+  --font-body:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--text);background:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(247,244,238,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+.nav-logo img{height:34px;width:auto;}
+.nav-logo-text{font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--g1);}
+.nav-links{display:flex;align-items:center;gap:1.8rem;list-style:none;}
+.nav-links a{font-size:0.88rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--g1);}
+.nav-cta{background:var(--g1)!important;color:var(--white)!important;padding:0.5rem 1.1rem;border-radius:8px;font-weight:600!important;}
+@media(max-width:860px){.nav-links{display:none;}}
+
+/* HERO */
+.hero{padding:8rem 2rem 5rem;background:linear-gradient(160deg,var(--dark) 0%,#0A2910 60%,#0F3A1A 100%);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-100px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(26,107,60,0.25) 0%,transparent 65%);pointer-events:none;}
+.hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.hero-tag{display:inline-block;background:rgba(58,176,105,0.15);color:var(--glow);font-size:0.73rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.32rem 0.85rem;border-radius:100px;margin-bottom:1.2rem;}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.08;margin-bottom:1.2rem;}
+.hero h1 em{font-style:normal;color:var(--glow);}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:2rem;}
+.hero-perks{display:flex;flex-direction:column;gap:0.7rem;margin-bottom:2.5rem;}
+.hero-perk{display:flex;align-items:center;gap:0.7rem;font-size:0.9rem;color:rgba(255,255,255,0.75);}
+.btn-primary{display:inline-flex;align-items:center;gap:0.4rem;background:var(--glow);color:var(--dark);padding:0.9rem 2rem;border-radius:10px;font-family:var(--font-display);font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.25s;box-shadow:0 4px 20px rgba(58,176,105,0.3);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(58,176,105,0.45);}
+.earn-panel{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:2rem;}
+.earn-panel-title{font-family:var(--font-display);font-size:0.8rem;font-weight:700;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:1.5rem;}
+.earn-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+.earn-row:last-child{border-bottom:none;padding-bottom:0;}
+.earn-label{font-size:0.88rem;color:rgba(255,255,255,0.5);}
+.earn-value{font-family:var(--font-display);font-weight:700;color:var(--amber);font-size:1.05rem;}
+.earn-total{background:rgba(58,176,105,0.15);border:1px solid rgba(58,176,105,0.25);border-radius:12px;padding:1.2rem;margin-top:1.2rem;display:flex;justify-content:space-between;align-items:center;}
+.earn-total-label{font-size:0.82rem;color:rgba(255,255,255,0.5);}
+.earn-total-value{font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--glow);}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;gap:2.5rem;}.earn-panel{order:2;}}
+
+/* SECTIONS */
+section{padding:5rem 2rem;}
+.container{max-width:1080px;margin:0 auto;}
+.section-tag{display:inline-block;background:rgba(26,107,60,0.08);color:var(--g1);font-size:0.73rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.32rem 0.85rem;border-radius:100px;margin-bottom:1rem;}
+.section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;color:var(--dark);margin-bottom:0.9rem;}
+.section-sub{font-size:1rem;color:var(--muted);line-height:1.7;max-width:540px;}
+
+/* WHO */
+.who{background:var(--white);}
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.who-card{background:var(--cream);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;transition:all 0.3s;}
+.who-card:hover{border-color:var(--g1);transform:translateY(-4px);box-shadow:0 8px 30px rgba(26,107,60,0.1);}
+.who-icon{font-size:2rem;margin-bottom:1rem;}
+.who-card h3{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:0.5rem;}
+.who-card p{font-size:0.87rem;color:var(--muted);line-height:1.6;}
+@media(max-width:640px){.who-grid{grid-template-columns:1fr;}}
+
+/* TASKS */
+.tasks{background:var(--cream);}
+.task-list{display:flex;flex-direction:column;gap:1px;margin-top:3rem;background:var(--border);border-radius:var(--radius);overflow:hidden;}
+.task-item{background:var(--white);padding:1.8rem 2rem;display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:2rem;}
+.task-num{width:40px;height:40px;background:rgba(26,107,60,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:var(--g1);}
+.task-text h4{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:0.25rem;}
+.task-text p{font-size:0.87rem;color:var(--muted);line-height:1.55;}
+.task-time{font-size:0.8rem;color:var(--muted);background:rgba(26,107,60,0.07);padding:0.3rem 0.75rem;border-radius:100px;white-space:nowrap;font-weight:500;}
+@media(max-width:640px){.task-item{grid-template-columns:40px 1fr;}.task-time{display:none;}}
+
+/* JOIN STEPS */
+.join{background:var(--white);}
+.join-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;position:relative;}
+.join-steps::before{content:'';position:absolute;top:28px;left:calc(12.5% + 12px);right:calc(12.5% + 12px);height:2px;background:linear-gradient(90deg,var(--g1),var(--glow));z-index:0;}
+.join-step{text-align:center;position:relative;z-index:1;}
+.join-step-dot{width:56px;height:56px;background:var(--white);border:3px solid var(--g1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 1rem;box-shadow:0 0 0 6px rgba(26,107,60,0.08);}
+.join-step h4{font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--dark);margin-bottom:0.4rem;}
+.join-step p{font-size:0.82rem;color:var(--muted);line-height:1.5;}
+@media(max-width:700px){.join-steps{grid-template-columns:1fr 1fr;}.join-steps::before{display:none;}}
+
+/* REGISTER */
+.register{background:var(--dark);padding:5rem 2rem;}
+.register-inner{max-width:700px;margin:0 auto;}
+.register .section-tag{background:rgba(58,176,105,0.15);color:var(--glow);}
+.register .section-title{color:var(--white);}
+.register .section-sub{color:rgba(255,255,255,0.5);}
+.form-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:2.5rem;margin-top:3rem;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem;}
+.form-group{display:flex;flex-direction:column;gap:0.45rem;margin-bottom:1.2rem;}
+.form-group label{font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.6);letter-spacing:0.02em;}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,0.07);border:1.5px solid rgba(255,255,255,0.12);border-radius:10px;padding:0.85rem 1rem;font-family:var(--font-body);font-size:0.92rem;color:var(--white);outline:none;transition:border-color 0.2s;width:100%;}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,0.25);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--glow);}
+.form-group select option{background:var(--dark);color:var(--white);}
+.form-group textarea{resize:vertical;min-height:90px;}
+.form-check{display:flex;align-items:flex-start;gap:0.75rem;margin-bottom:1.5rem;}
+.form-check input{margin-top:3px;accent-color:var(--glow);width:16px;height:16px;flex-shrink:0;}
+.form-check label{font-size:0.85rem;color:rgba(255,255,255,0.55);line-height:1.55;}
+.btn-submit{width:100%;padding:1rem;background:var(--glow);color:var(--dark);border:none;border-radius:10px;font-family:var(--font-display);font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.25s;}
+.btn-submit:hover{background:white;transform:translateY(-2px);}
+.form-note{font-size:0.78rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:1rem;line-height:1.5;}
+.form-success{display:none;text-align:center;padding:2rem;}
+.form-success h3{font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--glow);margin-bottom:0.75rem;}
+.form-success p{font-size:0.92rem;color:rgba(255,255,255,0.55);line-height:1.65;}
+@media(max-width:560px){.form-row{grid-template-columns:1fr;}}
+
+/* FOOTER */
+footer{background:var(--dark);padding:3rem 2rem 1.8rem;}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;}
+.footer-logo{font-family:var(--font-display);font-weight:700;color:white;font-size:1rem;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.83rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--glow);}
+.footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.3);}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.png" alt="TradeFlow NG" onerror="this.style.display='none'">
+    <span class="nav-logo-text">TradeFlow NG</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="traders.html">For Traders</a></li>
+    <li><a href="agents.html" class="active">For Agents</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="https://tradeflow-agents.streamlit.app" class="nav-cta">Agent Login →</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Become a Field Agent</div>
+      <h1>Earn from your <em>market knowledge</em></h1>
+      <p class="hero-sub">You already visit markets. You already know prices. TradeFlow NG pays you to share that knowledge — and uses it to help traders across Nigeria make better decisions.</p>
+      <div class="hero-perks">
+        <div class="hero-perk"><span>📍</span><span>Work from your own local market — no travel required</span></div>
+        <div class="hero-perk"><span>📱</span><span>Submit via a simple mobile form — no laptop needed</span></div>
+        <div class="hero-perk"><span>💰</span><span>Earn monthly stipend + bonuses + weekly airtime</span></div>
+        <div class="hero-perk"><span>🤝</span><span>Be part of building Nigeria's first trade intelligence network</span></div>
+      </div>
+      <a href="#register" class="btn-primary">Apply to Join →</a>
+    </div>
+    <div class="earn-panel">
+      <div class="earn-panel-title">What agents earn monthly</div>
+      <div class="earn-row"><span class="earn-label">Monthly stipend</span><span class="earn-value">₦5,000 – ₦10,000</span></div>
+      <div class="earn-row"><span class="earn-label">Weekly airtime</span><span class="earn-value">₦500 – ₦1,000/wk</span></div>
+      <div class="earn-row"><span class="earn-label">100% submission bonus</span><span class="earn-value">₦2,000/month</span></div>
+      <div class="earn-row"><span class="earn-label">Top agent quarterly prize</span><span class="earn-value">₦5,000</span></div>
+      <div class="earn-total">
+        <span class="earn-total-label">Potential annual earnings</span>
+        <span class="earn-total-value">₦84,000+</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="who">
+  <div class="container">
+    <div class="section-tag">Who Can Apply</div>
+    <h2 class="section-title">You don't need to be a data expert</h2>
+    <p class="section-sub">If you visit markets regularly and have a smartphone, you already have everything you need.</p>
+    <div class="who-grid reveal">
+      <div class="who-card"><div class="who-icon">🎓</div><h3>NYSC Corps Members</h3><p>Deployed near agricultural markets? Earn supplementary income while serving — report weekly prices from your host community market.</p></div>
+      <div class="who-card"><div class="who-icon">📚</div><h3>University Students</h3><p>Near a market town? The role takes 2–3 hours per week and pays consistently. Perfect alongside your academic schedule.</p></div>
+      <div class="who-card"><div class="who-icon">🏪</div><h3>Market Participants</h3><p>Already trading or working in agricultural markets? Turn your daily market presence into an additional income stream.</p></div>
+      <div class="who-card"><div class="who-icon">🌾</div><h3>Agricultural Workers</h3><p>ADP extension agents and cooperative workers already visit markets and farms. Adding TradeFlow NG reporting takes under 15 minutes.</p></div>
+      <div class="who-card"><div class="who-icon">🚛</div><h3>Transporters &amp; Drivers</h3><p>You travel through multiple markets every week. Your road condition reports and spot price observations are highly valuable data.</p></div>
+      <div class="who-card"><div class="who-icon">👋</div><h3>Anyone Near a Market</h3><p>Have a smartphone and visit a market regularly? If you can observe prices and submit a form, you qualify. We train you fully.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="tasks">
+  <div class="container">
+    <div class="section-tag">Your Weekly Tasks</div>
+    <h2 class="section-title">Simple. Consistent. Impactful.</h2>
+    <p class="section-sub">Every week, you complete four tasks. Most agents finish in under two hours total.</p>
+    <div class="task-list reveal">
+      <div class="task-item">
+        <div class="task-num">1</div>
+        <div class="task-text"><h4>Visit your assigned markets</h4><p>Go to the 1–2 markets you listed at registration — ideally on a major market day. Walk through the commodity sections, observe prices, ask sellers, note what you see.</p></div>
+        <div class="task-time">~45 mins</div>
+      </div>
+      <div class="task-item">
+        <div class="task-num">2</div>
+        <div class="task-text"><h4>Fill the KoboToolbox form</h4><p>Open the form link on your phone. Select your name and market, enter prices for each commodity, rate availability and quality, note any disruptions. Submit before you leave the market.</p></div>
+        <div class="task-time">~20 mins</div>
+      </div>
+      <div class="task-item">
+        <div class="task-num">3</div>
+        <div class="task-text"><h4>Take one photo</h4><p>A clear photo of the goods on display or a price board if visible. One photo per commodity is enough. Photograph any road damage or market disruption you observe too.</p></div>
+        <div class="task-time">~5 mins</div>
+      </div>
+      <div class="task-item">
+        <div class="task-num">4</div>
+        <div class="task-text"><h4>Confirm via WhatsApp</h4><p>After submitting, send a quick message to your supervisor: "Done — [Market Name], [Date]." This confirms your submission is recorded and processed.</p></div>
+        <div class="task-time">~2 mins</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="join">
+  <div class="container">
+    <div class="section-tag">How to Join</div>
+    <h2 class="section-title">From application to first submission in one week</h2>
+    <div class="join-steps reveal">
+      <div class="join-step"><div class="join-step-dot">📝</div><h4>Apply below</h4><p>Fill the short form on this page. Takes 3 minutes.</p></div>
+      <div class="join-step"><div class="join-step-dot">📞</div><h4>We call you</h4><p>A 10-minute introduction call within 48 hours.</p></div>
+      <div class="join-step"><div class="join-step-dot">📱</div><h4>Test submission</h4><p>Fill one practice form with a supervisor on the line.</p></div>
+      <div class="join-step"><div class="join-step-dot">✅</div><h4>Go live</h4><p>Confirmed and earning from Week 1.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="register" id="register">
+  <div class="register-inner">
+    <div class="section-tag">Apply Now</div>
+    <h2 class="section-title">Join the network</h2>
+    <p class="section-sub">Fill this form and we will be in touch within 48 hours. All fields marked * are required.</p>
+    <div class="form-card">
+      <form id="agentForm">
+        <div class="form-row">
+          <div class="form-group"><label>Full Name *</label><input type="text" name="name" placeholder="Your full name" required></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" name="phone" placeholder="08012345678" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>State *</label>
+            <select name="state" required>
+              <option value="" disabled selected>Select your state</option>
+              <option>Lagos</option><option>Oyo</option><option>Ogun</option>
+              <option>Kwara</option><option>Kogi</option><option>Abuja (FCT)</option>
+              <option>Nasarawa</option><option>Niger</option><option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>Town / LGA *</label><input type="text" name="town" placeholder="Where you are based" required></div>
+        </div>
+        <div class="form-group"><label>Two markets closest to you *</label><input type="text" name="markets" placeholder="e.g. Bodija Market, Oje Market" required></div>
+        <div class="form-group">
+          <label>Do you have connections at these markets? *</label>
+          <select name="connections" required>
+            <option value="" disabled selected>Select an option</option>
+            <option>Yes — I know sellers/traders there personally</option>
+            <option>Somewhat — I visit regularly but no deep connections</option>
+            <option>No — but I visit the market regularly</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Current occupation</label>
+          <select name="occupation">
+            <option value="" disabled selected>Select your occupation</option>
+            <option>NYSC Corps Member</option><option>University Student</option>
+            <option>Market Trader</option><option>Agricultural Extension Worker</option>
+            <option>Transporter / Driver</option><option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Why do you want to join? (optional)</label><textarea name="motivation" placeholder="Tell us a bit about yourself and why you are interested..."></textarea></div>
+        <div class="form-check">
+          <input type="checkbox" id="agree" required>
+          <label for="agree">I understand that as an agent I am responsible for the accuracy of prices I submit, and I agree to visit my assigned markets at least once per week.</label>
+        </div>
+        <button type="submit" class="btn-submit">Submit Application →</button>
+        <p class="form-note">We review all applications within 48 hours and reach out via phone. Your information is kept confidential.</p>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <div style="font-size:3rem;margin-bottom:1rem">✅</div>
+        <h3>Application received!</h3>
+        <p>Thank you for applying. We will call you within 48 hours to introduce the programme and answer any questions. Keep an eye on your phone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">🌾 TradeFlow NG</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a><a href="traders.html">Traders</a>
+      <a href="agents.html">Agents</a><a href="about.html">About</a>
+    </div>
+    <span class="footer-copy">© 2026 TradeFlow NG</span>
+  </div>
+</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);obs.unobserve(e.target);}});},{threshold:0.1});
+reveals.forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.querySelector('nav').style.padding=window.scrollY>60?'0.75rem 2rem':'1.1rem 2rem';});
+document.getElementById('agentForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const data=new FormData(this);
+  const name=data.get('name'),phone=data.get('phone'),state=data.get('state'),town=data.get('town'),markets=data.get('markets');
+  const msg=encodeURIComponent(`New TradeFlow NG Agent Application\n\nName: ${name}\nPhone: ${phone}\nState: ${state}\nTown: ${town}\nMarkets: ${markets}`);
+  this.style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+  setTimeout(()=>{window.open(`https://wa.me/2348012345678?text=${msg}`,'_blank');},1500);
+});
+</script>
+</body>
+</html>
