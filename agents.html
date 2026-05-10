@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Become an Agent — TradeFlow NG</title>
 <meta name="description" content="Join Nigeria's agricultural price intelligence network. Earn a monthly stipend by reporting commodity prices from your local market.">
-<link rel="icon" type="image/png" href="TradeFlow logo.png">
+<link rel="icon" type="image/png" href="logo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -136,15 +136,18 @@ footer{background:var(--dark);padding:3rem 2rem 1.8rem;}
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="TradeFlow logo.png" alt="TradeFlow NG" onerror="this.style.display='none'">
+    <img src="logo-icon.png" alt="TradeFlow NG" onerror="this.style.display='none'">
     <span class="nav-logo-text">TradeFlow NG</span>
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="traders.html">For Traders</a></li>
     <li><a href="agents.html" class="active">For Agents</a></li>
+    <li><a href="prices.html">Prices</a></li>
+    <li><a href="blog.html">Insights</a></li>
+    <li><a href="research.html">Research</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="https://tradeflow-ng-agent.streamlit.app" class="nav-cta">Agent Login →</a></li>
+    <li><a href="https://tradeflow-agents.streamlit.app" class="nav-cta">Agent Login →</a></li>
   </ul>
 </nav>
 
@@ -244,7 +247,7 @@ footer{background:var(--dark);padding:3rem 2rem 1.8rem;}
       <form id="agentForm">
         <div class="form-row">
           <div class="form-group"><label>Full Name *</label><input type="text" name="name" placeholder="Your full name" required></div>
-          <div class="form-group"><label>Phone Number *</label><input type="tel" name="phone" placeholder="08012345678" required></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" name="phone" placeholder="09027149179" required></div>
         </div>
         <div class="form-row">
           <div class="form-group">
@@ -317,7 +320,7 @@ document.getElementById('agentForm').addEventListener('submit',function(e){
   const msg=encodeURIComponent(`New TradeFlow NG Agent Application\n\nName: ${name}\nPhone: ${phone}\nState: ${state}\nTown: ${town}\nMarkets: ${markets}`);
   this.style.display='none';
   document.getElementById('formSuccess').style.display='block';
-  setTimeout(()=>{window.open(`https://wa.me/2348012345678?text=${msg}`,'_blank');},1500);
+  setTimeout(()=>{window.open(`https://wa.me/2349027149179?text=${msg}`,'_blank');},1500);
 });
 </script>
 </body>

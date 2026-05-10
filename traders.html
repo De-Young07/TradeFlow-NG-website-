@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Traders — TradeFlow NG</title>
 <meta name="description" content="Weekly trade recommendations for Nigerian commodity traders. Know exactly where to sell before you leave.">
-<link rel="icon" type="image/png" href="TradeFlow logo.png">
+<link rel="icon" type="image/png" href="logo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -30,7 +30,9 @@
   .nav-links { display:flex; align-items:center; gap:1.8rem; list-style:none; }
   .nav-links a { font-size:0.88rem; font-weight:500; color:var(--muted); text-decoration:none; transition:color 0.2s; }
   .nav-links a:hover, .nav-links a.active { color:var(--g1); }
-  .nav-cta { background:var(--g1)!important; color:var(--white)!important; padding:0.5rem 1.1rem; border-radius:8px; font-weight:600!important; }
+  .nav-cta { background:var(--g1)!important; color:var(--white)!important; padding:0.5rem 1.1rem; border-radius:8px; font-weight:600!important; display:inline-block; line-height:1.4; }
+  .nav-cta:hover { background:var(--g2)!important; color:var(--white)!important; }
+  .nav-links li { display:flex; align-items:center; }
   @media(max-width:860px){ .nav-links { display:none; } }
 
   /* HERO */
@@ -151,15 +153,18 @@
 
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="TradeFlow logo.png" alt="TradeFlow NG" onerror="this.style.display='none'">
+    <img src="logo-icon.png" alt="TradeFlow NG" onerror="this.style.display='none'">
     <span class="nav-logo-text">TradeFlow NG</span>
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="traders.html" class="active">For Traders</a></li>
-    <li><a href=".html">For </a></li>
+    <li><a href="agents.html">For Agents</a></li>
+    <li><a href="prices.html">Prices</a></li>
+    <li><a href="blog.html">Insights</a></li>
+    <li><a href="research.html">Research</a></li>
     <li><a href="about.html">About</a></li>
-    <li><a href="https://tradeflow-ng-agent.streamlit.app" class="nav-cta">Agent Login →</a></li>
+    <li><a href="https://tradeflow-agents.streamlit.app" class="nav-cta">Agent Login →</a></li>
   </ul>
 </nav>
 
@@ -169,7 +174,7 @@
   <h1>Trade with <em>intelligence</em>,<br>not guesswork</h1>
   <p>Every week, TradeFlow NG analyses prices across 8 Nigerian states and tells you exactly where to buy, where to sell, and what profit to expect — before you commit to the journey.</p>
   <div class="hero-btns">
-    <a href="https://tradeflow-ng-dash.streamlit.app" class="btn-glow">Access the Platform →</a>
+    <a href="https://tradeflow-admin.streamlit.app" class="btn-glow">Access the Platform →</a>
     <a href="#how" class="btn-ghost">See How It Works</a>
   </div>
 </div>
@@ -185,8 +190,8 @@
       <div class="how-step reveal">
         <div class="how-step-num">01</div>
         <div class="how-step-text">
-          <h3>Field  collect live prices</h3>
-          <p>Our network of verified field  visits key markets across 8 states every week. They report commodity prices, market activity, road conditions, and supply availability using a structured mobile form. Every submission is timestamped and geolocated.</p>
+          <h3>Field agents collect live prices</h3>
+          <p>Our network of verified field agents visits key markets across 8 states every week. They report commodity prices, market activity, road conditions, and supply availability using a structured mobile form. Every submission is timestamped and geolocated.</p>
         </div>
         <div class="how-step-visual">
           <div class="mini-tag">Weekly submissions this month</div>
@@ -342,7 +347,7 @@
           <li>Risk and confidence indicators</li>
           <li>WhatsApp broadcast delivery</li>
         </ul>
-        <a href="https://tradeflow-ng-dash.streamlit.app" class="price-cta price-cta-outline">Get Started Free →</a>
+        <a href="https://tradeflow-admin.streamlit.app" class="price-cta price-cta-outline">Get Started Free →</a>
       </div>
 
       <div class="price-card featured">
@@ -400,7 +405,7 @@
   <h2>Start trading smarter this week</h2>
   <p>Join the pilot — free access to weekly trade recommendations across 8 Nigerian states.</p>
   <div class="page-cta-btns">
-    <a href="https://tradeflow-ng-dash.streamlit.app" class="btn-white">Access Platform →</a>
+    <a href="https://tradeflow-admin.streamlit.app" class="btn-white">Access Platform →</a>
   </div>
 </section>
 
@@ -410,7 +415,7 @@
     <div class="footer-links">
       <a href="index.html">Home</a>
       <a href="traders.html">Traders</a>
-      <a href="agents.html"></a>
+      <a href="agents.html">Agents</a>
       <a href="about.html">About</a>
     </div>
     <span class="footer-copy">© 2026 TradeFlow NG</span>

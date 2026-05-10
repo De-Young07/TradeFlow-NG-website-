@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Insights — TradeFlow NG</title>
+<meta name="description" content="Weekly agricultural market intelligence, price analysis, and trade insights from across 8 Nigerian states.">
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --g1:#1A6B3C;--g2:#2E8B57;--glow:#3AB069;--amber:#E07B00;--amber-l:#FFF3DC;
+  --cream:#F7F4EE;--dark:#0D1F14;--text:#1A1A1A;--muted:#5A6A60;
+  --white:#FFFFFF;--border:rgba(26,107,60,0.15);--radius:16px;
+  --font-display:'Plus Jakarta Sans',sans-serif;--font-body:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--text);background:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(247,244,238,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+.nav-logo img{height:34px;width:auto;}
+.nav-logo-text{font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--g1);}
+.nav-links{display:flex;align-items:center;gap:1.8rem;list-style:none;}
+.nav-links li{display:flex;align-items:center;}
+.nav-links a{font-size:0.88rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--g1);}
+.nav-cta{background:var(--g1)!important;color:var(--white)!important;padding:0.5rem 1.1rem;border-radius:8px;font-weight:600!important;display:inline-block;}
+.nav-cta:hover{background:var(--g2)!important;}
+@media(max-width:860px){.nav-links{display:none;}}
+
+.page-hero{padding:8rem 2rem 4rem;background:var(--white);border-bottom:1px solid var(--border);}
+.page-hero-inner{max-width:1080px;margin:0 auto;}
+.page-tag{display:inline-block;background:rgba(26,107,60,0.08);color:var(--g1);font-size:0.73rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.32rem 0.85rem;border-radius:100px;margin-bottom:1rem;}
+.page-hero h1{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--dark);letter-spacing:-0.03em;line-height:1.1;margin-bottom:0.8rem;}
+.page-hero p{font-size:1rem;color:var(--muted);max-width:540px;line-height:1.7;}
+.filter-row{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:2rem;}
+.filter-btn{padding:0.45rem 1rem;border-radius:100px;font-size:0.82rem;font-weight:600;border:1.5px solid var(--border);background:transparent;cursor:pointer;color:var(--muted);transition:all 0.2s;font-family:var(--font-body);}
+.filter-btn:hover,.filter-btn.active{background:var(--g1);color:white;border-color:var(--g1);}
+
+.blog-layout{max-width:1080px;margin:0 auto;padding:4rem 2rem;display:grid;grid-template-columns:1fr 340px;gap:3rem;align-items:start;}
+@media(max-width:900px){.blog-layout{grid-template-columns:1fr;}}
+
+/* FEATURED POST */
+.featured-post{background:var(--dark);border-radius:20px;overflow:hidden;margin-bottom:2.5rem;display:grid;grid-template-columns:1fr 1fr;}
+.featured-img{background:linear-gradient(135deg,var(--g1),var(--glow));min-height:260px;display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative;overflow:hidden;}
+.featured-img::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(255,255,255,0.08) 0%,transparent 60%);}
+.featured-content{padding:2.5rem;}
+.post-cat{display:inline-block;font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:0.25rem 0.7rem;border-radius:100px;margin-bottom:0.8rem;}
+.cat-market{background:rgba(58,176,105,0.2);color:var(--glow);}
+.cat-analysis{background:rgba(224,123,0,0.2);color:var(--amber);}
+.cat-guide{background:rgba(26,82,118,0.2);color:#5DADE2;}
+.cat-research{background:rgba(108,52,131,0.2);color:#BB8FCE;}
+.featured-content h2{font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--white);line-height:1.25;margin-bottom:0.8rem;}
+.featured-content p{font-size:0.88rem;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:1.5rem;}
+.post-meta{display:flex;align-items:center;gap:1rem;font-size:0.75rem;color:rgba(255,255,255,0.35);}
+.read-link{display:inline-flex;align-items:center;gap:0.4rem;color:var(--glow);font-size:0.85rem;font-weight:600;text-decoration:none;margin-top:1rem;}
+.read-link:hover{gap:0.7rem;}
+@media(max-width:680px){.featured-post{grid-template-columns:1fr;}.featured-img{min-height:180px;}}
+
+/* POST GRID */
+.posts-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+@media(max-width:640px){.posts-grid{grid-template-columns:1fr;}}
+.post-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all 0.3s;}
+.post-card:hover{border-color:var(--g1);transform:translateY(-4px);box-shadow:0 8px 32px rgba(26,107,60,0.1);}
+.post-thumb{height:140px;display:flex;align-items:center;justify-content:center;font-size:3rem;}
+.thumb-green{background:linear-gradient(135deg,rgba(26,107,60,0.12),rgba(58,176,105,0.08));}
+.thumb-amber{background:linear-gradient(135deg,rgba(224,123,0,0.1),rgba(255,200,80,0.06));}
+.thumb-blue{background:linear-gradient(135deg,rgba(26,82,118,0.1),rgba(93,173,226,0.06));}
+.thumb-purple{background:linear-gradient(135deg,rgba(108,52,131,0.1),rgba(187,143,206,0.06));}
+.post-body{padding:1.4rem;}
+.post-body h3{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--dark);line-height:1.35;margin-bottom:0.5rem;}
+.post-body p{font-size:0.83rem;color:var(--muted);line-height:1.6;margin-bottom:1rem;}
+.post-footer{display:flex;align-items:center;justify-content:space-between;}
+.post-date{font-size:0.75rem;color:var(--muted);}
+.post-read{font-size:0.78rem;font-weight:600;color:var(--g1);text-decoration:none;}
+
+/* PAGINATION */
+.pagination{display:flex;justify-content:center;gap:0.5rem;margin-top:3rem;}
+.page-btn{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--border);background:transparent;cursor:pointer;font-family:var(--font-body);font-size:0.88rem;color:var(--muted);transition:all 0.2s;display:flex;align-items:center;justify-content:center;}
+.page-btn:hover,.page-btn.active{background:var(--g1);color:white;border-color:var(--g1);}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:1.5rem;}
+.sidebar-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;}
+.sidebar-title{font-family:var(--font-display);font-weight:700;font-size:0.95rem;color:var(--dark);margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:1px solid var(--border);}
+.price-ticker{display:flex;flex-direction:column;gap:0.8rem;}
+.ticker-row{display:flex;justify-content:space-between;align-items:center;}
+.ticker-name{font-size:0.85rem;color:var(--text);font-weight:500;}
+.ticker-val{font-family:var(--font-display);font-weight:700;font-size:0.9rem;color:var(--dark);}
+.ticker-chg{font-size:0.75rem;font-weight:600;padding:0.15rem 0.5rem;border-radius:100px;}
+.up{background:#E8F5EE;color:var(--g1);}
+.down{background:#FFE5E5;color:#C0392B;}
+.ticker-updated{font-size:0.72rem;color:var(--muted);margin-top:0.8rem;text-align:center;}
+.category-list{display:flex;flex-direction:column;gap:0.6rem;}
+.cat-link{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid var(--border);text-decoration:none;transition:color 0.2s;}
+.cat-link:last-child{border-bottom:none;}
+.cat-link span:first-child{font-size:0.88rem;color:var(--text);font-weight:500;}
+.cat-link span:last-child{font-size:0.75rem;color:var(--muted);background:var(--cream);padding:0.15rem 0.5rem;border-radius:100px;}
+.cat-link:hover span:first-child{color:var(--g1);}
+.newsletter-form{display:flex;flex-direction:column;gap:0.8rem;}
+.newsletter-form p{font-size:0.85rem;color:var(--muted);line-height:1.6;}
+.nl-input{padding:0.75rem 1rem;border:1.5px solid var(--border);border-radius:10px;font-family:var(--font-body);font-size:0.88rem;outline:none;transition:border-color 0.2s;width:100%;}
+.nl-input:focus{border-color:var(--g1);}
+.nl-btn{padding:0.75rem;background:var(--g1);color:white;border:none;border-radius:10px;font-family:var(--font-display);font-weight:700;font-size:0.88rem;cursor:pointer;transition:all 0.2s;}
+.nl-btn:hover{background:var(--g2);}
+
+footer{background:var(--dark);padding:2.5rem 2rem 1.5rem;margin-top:0;}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;}
+.footer-logo{font-family:var(--font-display);font-weight:700;color:white;font-size:1rem;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.83rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--glow);}
+.footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.3);}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.png" alt="TradeFlow NG" onerror="this.style.display='none'">
+    <span class="nav-logo-text">TradeFlow NG</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="traders.html">For Traders</a></li>
+    <li><a href="agents.html">For Agents</a></li>
+    <li><a href="blog.html" class="active">Insights</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="https://tradeflow-agents.streamlit.app" class="nav-cta">Agent Login →</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="page-tag">Market Intelligence</div>
+    <h1>Insights from the field</h1>
+    <p>Weekly price analysis, trade route intelligence, and agricultural market commentary from our team and field agents across 8 Nigerian states.</p>
+    <div class="filter-row">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Market Updates</button>
+      <button class="filter-btn">Price Analysis</button>
+      <button class="filter-btn">Trade Guides</button>
+      <button class="filter-btn">Research</button>
+    </div>
+  </div>
+</div>
+
+<div class="blog-layout">
+  <div>
+    <!-- FEATURED -->
+    <div class="featured-post reveal">
+      <div class="featured-img">🌾</div>
+      <div class="featured-content">
+        <span class="post-cat cat-market">Market Update</span>
+        <h2>Yam prices on the Nasarawa–Lagos corridor: what this week's data shows</h2>
+        <p>Our agents submitted prices from 6 states this week. Yam supply from Nasarawa is at its seasonal peak, but demand in Lagos remains strong. The price differential is 28% — one of the widest we have recorded.</p>
+        <div class="post-meta">
+          <span>TradeFlow NG Team</span>
+          <span>·</span>
+          <span>May 8, 2026</span>
+          <span>·</span>
+          <span>4 min read</span>
+        </div>
+        <a href="#" class="read-link">Read article →</a>
+      </div>
+    </div>
+
+    <!-- POST GRID -->
+    <div class="posts-grid reveal">
+      <div class="post-card">
+        <div class="post-thumb thumb-amber">🍅</div>
+        <div class="post-body">
+          <span class="post-cat cat-analysis" style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:0.2rem 0.6rem;border-radius:100px;display:inline-block;margin-bottom:0.6rem;">Price Analysis</span>
+          <h3>Tomato glut in Niger State — what it means for traders buying south</h3>
+          <p>Supply has surged 40% above normal. For traders routing to Oyo or Lagos, this is a time-sensitive window.</p>
+          <div class="post-footer"><span class="post-date">May 5, 2026</span><a href="#" class="post-read">Read →</a></div>
+        </div>
+      </div>
+      <div class="post-card">
+        <div class="post-thumb thumb-blue">🚛</div>
+        <div class="post-body">
+          <span class="post-cat cat-guide" style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:0.2rem 0.6rem;border-radius:100px;display:inline-block;margin-bottom:0.6rem;">Trade Guide</span>
+          <h3>How backhauling can cut your transport costs by 35%</h3>
+          <p>Most Nigerian agricultural traders return empty. Here is exactly how to identify and secure a profitable return load.</p>
+          <div class="post-footer"><span class="post-date">May 2, 2026</span><a href="#" class="post-read">Read →</a></div>
+        </div>
+      </div>
+      <div class="post-card">
+        <div class="post-thumb thumb-green">🌽</div>
+        <div class="post-body">
+          <span class="post-cat cat-market" style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:0.2rem 0.6rem;border-radius:100px;display:inline-block;margin-bottom:0.6rem;">Market Update</span>
+          <h3>Maize prices steady in Nasarawa as post-harvest supply stabilises</h3>
+          <p>After three weeks of volatility, Nasarawa maize prices have stabilised at ₦38,500/bag. Our model confidence is now high.</p>
+          <div class="post-footer"><span class="post-date">Apr 28, 2026</span><a href="#" class="post-read">Read →</a></div>
+        </div>
+      </div>
+      <div class="post-card">
+        <div class="post-thumb thumb-purple">📊</div>
+        <div class="post-body">
+          <span class="post-cat cat-research" style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:0.2rem 0.6rem;border-radius:100px;display:inline-block;margin-bottom:0.6rem;">Research</span>
+          <h3>The information gap in Nigerian agricultural trade: what the data says</h3>
+          <p>A review of the evidence on market information systems in sub-Saharan Africa and what it means for TradeFlow NG.</p>
+          <div class="post-footer"><span class="post-date">Apr 22, 2026</span><a href="#" class="post-read">Read →</a></div>
+        </div>
+      </div>
+      <div class="post-card">
+        <div class="post-thumb thumb-amber">🚦</div>
+        <div class="post-body">
+          <span class="post-cat cat-guide" style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:0.2rem 0.6rem;border-radius:100px;display:inline-block;margin-bottom:0.6rem;">Trade Guide</span>
+          <h3>Reading a TradeFlow NG recommendation: a step-by-step guide</h3>
+          <p>What every field means, how to assess confidence, what to do when a route is flagged as high risk.</p>
+          <div class="post-footer"><span class="post-date">Apr 18, 2026</span><a href="#" class="post-read">Read →</a></div>
+        </div>
+      </div>
+      <div class="post-card">
+        <div class="post-thumb thumb-green">🌾</div>
+        <div class="post-body">
+          <span class="post-cat cat-analysis" style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:0.2rem 0.6rem;border-radius:100px;display:inline-block;margin-bottom:0.6rem;">Price Analysis</span>
+          <h3>Rice on the Kogi–Oyo corridor: 12-week price history and outlook</h3>
+          <p>Our agent network has now recorded 12 weeks of Kogi rice prices. Here is what the trend says about the next four weeks.</p>
+          <div class="post-footer"><span class="post-date">Apr 15, 2026</span><a href="#" class="post-read">Read →</a></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pagination reveal">
+      <button class="page-btn active">1</button>
+      <button class="page-btn">2</button>
+      <button class="page-btn">3</button>
+      <button class="page-btn">→</button>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <div class="sidebar-card reveal">
+      <div class="sidebar-title">📈 This Week's Prices</div>
+      <div class="price-ticker">
+        <div class="ticker-row"><span class="ticker-name">🍠 Yam (Nasarawa)</span><div style="text-align:right"><span class="ticker-val">₦17,064</span><br><span class="ticker-chg up">↑ 3.2%</span></div></div>
+        <div class="ticker-row"><span class="ticker-name">🌽 Maize (Nasarawa)</span><div style="text-align:right"><span class="ticker-val">₦38,500</span><br><span class="ticker-chg up">↑ 0.8%</span></div></div>
+        <div class="ticker-row"><span class="ticker-name">🌾 Rice (Kogi)</span><div style="text-align:right"><span class="ticker-val">₦44,625</span><br><span class="ticker-chg down">↓ 1.1%</span></div></div>
+        <div class="ticker-row"><span class="ticker-name">🍅 Tomato (Niger)</span><div style="text-align:right"><span class="ticker-val">₦3,249</span><br><span class="ticker-chg down">↓ 5.4%</span></div></div>
+      </div>
+      <p class="ticker-updated">Updated: May 8, 2026 · Source: TradeFlow NG agents</p>
+    </div>
+
+    <div class="sidebar-card reveal">
+      <div class="sidebar-title">📂 Categories</div>
+      <div class="category-list">
+        <a href="#" class="cat-link"><span>Market Updates</span><span>12</span></a>
+        <a href="#" class="cat-link"><span>Price Analysis</span><span>8</span></a>
+        <a href="#" class="cat-link"><span>Trade Guides</span><span>6</span></a>
+        <a href="#" class="cat-link"><span>Research</span><span>4</span></a>
+        <a href="#" class="cat-link"><span>Agent Stories</span><span>3</span></a>
+      </div>
+    </div>
+
+    <div class="sidebar-card reveal">
+      <div class="sidebar-title">📬 Weekly Digest</div>
+      <div class="newsletter-form">
+        <p>Get the weekly TradeFlow NG market summary in your inbox — prices, route recommendations, and key events.</p>
+        <input type="email" class="nl-input" placeholder="your@email.com">
+        <button class="nl-btn">Subscribe →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">🌾 TradeFlow NG</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a><a href="traders.html">Traders</a>
+      <a href="agents.html">Agents</a><a href="about.html">About</a>
+    </div>
+    <span class="footer-copy">© 2026 TradeFlow NG</span>
+  </div>
+</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(e=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('visible'),i*70);obs.unobserve(el.target);}});},{threshold:0.08});
+reveals.forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.querySelector('nav').style.padding=window.scrollY>60?'0.75rem 2rem':'1.1rem 2rem';});
+document.querySelectorAll('.filter-btn').forEach(btn=>{btn.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');});});
+</script>
+</body>
+</html>

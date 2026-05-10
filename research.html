@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data & Research — TradeFlow NG</title>
+<meta name="description" content="TradeFlow NG's research foundation, data methodology, academic publications, and institutional partnership opportunities.">
+<link rel="icon" type="image/png" href="logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --g1:#1A6B3C;--g2:#2E8B57;--glow:#3AB069;--amber:#E07B00;--amber-l:#FFF3DC;
+  --cream:#F7F4EE;--dark:#0D1F14;--text:#1A1A1A;--muted:#5A6A60;
+  --white:#FFFFFF;--border:rgba(26,107,60,0.15);--radius:16px;
+  --blue:#1A5276;--blue-l:#D6EAF8;--purple:#6C3483;--purple-l:#F4ECF7;
+  --font-display:'Plus Jakarta Sans',sans-serif;--font-body:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--text);background:var(--cream);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.1rem 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(247,244,238,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+.nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;}
+.nav-logo img{height:34px;width:auto;}
+.nav-logo-text{font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--g1);}
+.nav-links{display:flex;align-items:center;gap:1.8rem;list-style:none;}
+.nav-links li{display:flex;align-items:center;}
+.nav-links a{font-size:0.88rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--g1);}
+.nav-cta{background:var(--g1)!important;color:var(--white)!important;padding:0.5rem 1.1rem;border-radius:8px;font-weight:600!important;display:inline-block;}
+.nav-cta:hover{background:var(--g2)!important;}
+@media(max-width:860px){.nav-links{display:none;}}
+
+/* HERO */
+.hero{padding:8rem 2rem 5rem;background:var(--dark);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 80% 30%,rgba(26,107,60,0.2) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(108,52,131,0.1) 0%,transparent 60%);pointer-events:none;}
+.hero-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.2fr 1fr;gap:5rem;align-items:center;}
+.hero-tag{display:inline-block;background:rgba(108,52,131,0.2);color:#BB8FCE;font-size:0.73rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.32rem 0.85rem;border-radius:100px;margin-bottom:1.2rem;}
+.hero h1{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--white);letter-spacing:-0.03em;line-height:1.1;margin-bottom:1rem;}
+.hero h1 em{font-style:normal;color:var(--glow);}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:2.5rem;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-glow{background:var(--glow);color:var(--dark);padding:0.85rem 1.8rem;border-radius:10px;font-family:var(--font-display);font-weight:700;font-size:0.92rem;text-decoration:none;transition:all 0.25s;}
+.btn-glow:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(58,176,105,0.4);}
+.btn-ghost{border:1.5px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.8);padding:0.85rem 1.8rem;border-radius:10px;font-size:0.92rem;text-decoration:none;transition:all 0.25s;}
+.btn-ghost:hover{border-color:white;background:rgba(255,255,255,0.08);}
+
+/* Stats panel */
+.stats-panel{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.stat-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:1.4rem;}
+.stat-n{font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--glow);line-height:1;}
+.stat-l{font-size:0.8rem;color:rgba(255,255,255,0.4);margin-top:0.3rem;line-height:1.4;}
+@media(max-width:860px){.hero-inner{grid-template-columns:1fr;gap:2.5rem;}.stats-panel{grid-template-columns:1fr 1fr;}}
+
+/* SECTIONS */
+section{padding:5rem 2rem;}
+.container{max-width:1080px;margin:0 auto;}
+.section-tag{display:inline-block;background:rgba(26,107,60,0.08);color:var(--g1);font-size:0.73rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.32rem 0.85rem;border-radius:100px;margin-bottom:1rem;}
+.section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.5rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;color:var(--dark);margin-bottom:0.9rem;}
+.section-sub{font-size:1rem;color:var(--muted);line-height:1.7;max-width:540px;}
+
+/* METHODOLOGY */
+.methodology{background:var(--white);}
+.method-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
+.method-card{border-radius:var(--radius);padding:2rem;border:1px solid var(--border);transition:all 0.3s;position:relative;overflow:hidden;}
+.method-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.method-card.green::before{background:linear-gradient(90deg,var(--g1),var(--glow));}
+.method-card.blue::before{background:linear-gradient(90deg,var(--blue),#5DADE2);}
+.method-card.amber::before{background:linear-gradient(90deg,var(--amber),#F7DC6F);}
+.method-card.purple::before{background:linear-gradient(90deg,var(--purple),#BB8FCE);}
+.method-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,0.08);}
+.method-icon{font-size:1.8rem;margin-bottom:1rem;}
+.method-card h3{font-family:var(--font-display);font-weight:700;font-size:1.05rem;color:var(--dark);margin-bottom:0.6rem;}
+.method-card p{font-size:0.88rem;color:var(--muted);line-height:1.7;}
+.method-card .method-tech{display:inline-block;margin-top:0.8rem;font-size:0.72rem;font-weight:700;color:var(--g1);background:rgba(26,107,60,0.08);padding:0.2rem 0.6rem;border-radius:100px;}
+@media(max-width:640px){.method-grid{grid-template-columns:1fr;}}
+
+/* EVIDENCE */
+.evidence{background:var(--cream);}
+.evidence-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
+.paper-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;transition:all 0.3s;}
+.paper-card:hover{border-color:var(--g1);transform:translateY(-3px);box-shadow:0 6px 24px rgba(26,107,60,0.1);}
+.paper-type{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;padding:0.2rem 0.6rem;border-radius:100px;margin-bottom:0.8rem;display:inline-block;}
+.type-external{background:var(--blue-l);color:var(--blue);}
+.type-internal{background:rgba(26,107,60,0.1);color:var(--g1);}
+.paper-card h3{font-family:var(--font-display);font-weight:700;font-size:0.97rem;color:var(--dark);margin-bottom:0.4rem;line-height:1.35;}
+.paper-authors{font-size:0.78rem;color:var(--muted);margin-bottom:0.6rem;}
+.paper-journal{font-size:0.78rem;font-weight:600;color:var(--g1);}
+.paper-relevance{margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid var(--border);font-size:0.83rem;color:var(--muted);line-height:1.55;}
+.paper-relevance strong{color:var(--text);}
+@media(max-width:640px){.evidence-grid{grid-template-columns:1fr;}}
+
+/* DATA SCHEMA */
+.schema{background:var(--white);}
+.schema-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:start;margin-top:3rem;}
+.schema-text p{font-size:0.93rem;color:var(--muted);line-height:1.75;margin-bottom:1rem;}
+.schema-text h3{font-family:var(--font-display);font-weight:700;font-size:1.1rem;color:var(--dark);margin:1.5rem 0 0.6rem;}
+.table-list{display:flex;flex-direction:column;gap:0.6rem;}
+.table-item{display:flex;align-items:center;justify-content:space-between;padding:0.8rem 1rem;background:var(--cream);border-radius:10px;border:1px solid var(--border);}
+.table-name{font-family:'Courier New',monospace;font-size:0.85rem;font-weight:700;color:var(--g1);}
+.table-rows{font-size:0.75rem;color:var(--muted);background:var(--white);padding:0.15rem 0.5rem;border-radius:100px;}
+.schema-visual{background:var(--dark);border-radius:16px;padding:1.8rem;font-family:'Courier New',monospace;font-size:0.8rem;color:rgba(255,255,255,0.7);line-height:1.9;overflow-x:auto;}
+.code-comment{color:rgba(58,176,105,0.7);}
+.code-table{color:#5DADE2;}
+.code-field{color:rgba(255,255,255,0.8);}
+.code-type{color:#F7DC6F;}
+@media(max-width:760px){.schema-inner{grid-template-columns:1fr;}}
+
+/* THEORY OF CHANGE */
+.toc{background:var(--dark);padding:5rem 2rem;}
+.toc-inner{max-width:1080px;margin:0 auto;}
+.toc .section-tag{background:rgba(108,52,131,0.2);color:#BB8FCE;}
+.toc .section-title{color:var(--white);}
+.toc .section-sub{color:rgba(255,255,255,0.5);}
+.toc-flow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:3rem;position:relative;}
+.toc-flow::before{content:'';position:absolute;top:32px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,var(--g1),var(--glow));z-index:0;}
+.toc-step{text-align:center;position:relative;z-index:1;padding:0 0.5rem;}
+.toc-dot{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,0.06);border:2px solid rgba(58,176,105,0.4);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1rem;}
+.toc-step h4{font-family:var(--font-display);font-weight:700;font-size:0.82rem;color:var(--white);margin-bottom:0.4rem;line-height:1.3;}
+.toc-step p{font-size:0.72rem;color:rgba(255,255,255,0.4);line-height:1.5;}
+@media(max-width:700px){.toc-flow{grid-template-columns:1fr 1fr;}.toc-flow::before{display:none;}}
+
+/* IMPACT METRICS */
+.impact{background:var(--cream);}
+.impact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.impact-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;text-align:center;transition:all 0.3s;}
+.impact-card:hover{border-color:var(--g1);transform:translateY(-4px);box-shadow:0 8px 28px rgba(26,107,60,0.1);}
+.impact-n{font-family:var(--font-display);font-size:2.2rem;font-weight:800;color:var(--g1);line-height:1;margin-bottom:0.3rem;}
+.impact-l{font-size:0.88rem;color:var(--text);font-weight:600;margin-bottom:0.5rem;}
+.impact-sub{font-size:0.8rem;color:var(--muted);line-height:1.55;}
+@media(max-width:640px){.impact-grid{grid-template-columns:1fr;}}
+
+/* PARTNERSHIPS */
+.partnerships{background:var(--white);}
+.partner-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.partner-card{border:1px solid var(--border);border-radius:var(--radius);padding:2rem;transition:all 0.3s;}
+.partner-card:hover{border-color:var(--g1);transform:translateY(-3px);}
+.partner-type{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:0.8rem;display:inline-block;padding:0.2rem 0.6rem;border-radius:100px;}
+.pt-academic{background:rgba(26,82,118,0.1);color:var(--blue);}
+.pt-ngo{background:rgba(108,52,131,0.1);color:var(--purple);}
+.pt-commercial{background:rgba(26,107,60,0.1);color:var(--g1);}
+.partner-card h3{font-family:var(--font-display);font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:0.5rem;}
+.partner-card p{font-size:0.86rem;color:var(--muted);line-height:1.6;margin-bottom:1.2rem;}
+.partner-ask{font-size:0.82rem;font-weight:600;color:var(--g1);}
+@media(max-width:640px){.partner-grid{grid-template-columns:1fr;}}
+
+/* CONTACT CTA */
+.research-cta{background:linear-gradient(135deg,var(--g1),var(--g2));padding:5rem 2rem;text-align:center;}
+.research-cta h2{font-family:var(--font-display);font-size:2rem;font-weight:800;color:white;letter-spacing:-0.03em;margin-bottom:0.8rem;}
+.research-cta p{font-size:1rem;color:rgba(255,255,255,0.7);max-width:480px;margin:0 auto 2.5rem;line-height:1.65;}
+.cta-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+.btn-white{background:white;color:var(--g1);padding:0.9rem 2rem;border-radius:10px;font-family:var(--font-display);font-weight:700;font-size:0.92rem;text-decoration:none;transition:all 0.25s;}
+.btn-white:hover{background:var(--amber-l);transform:translateY(-2px);}
+.btn-outline{border:1.5px solid rgba(255,255,255,0.4);color:white;padding:0.9rem 2rem;border-radius:10px;font-size:0.92rem;text-decoration:none;transition:all 0.25s;}
+.btn-outline:hover{border-color:white;background:rgba(255,255,255,0.1);}
+
+footer{background:var(--dark);padding:2.5rem 2rem 1.5rem;}
+.footer-inner{max-width:1080px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;border-top:1px solid rgba(255,255,255,0.08);padding-top:1.5rem;}
+.footer-logo{font-family:var(--font-display);font-weight:700;color:white;}
+.footer-links{display:flex;gap:1.5rem;}
+.footer-links a{font-size:0.83rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--glow);}
+.footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.3);}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logo-icon.png" alt="TradeFlow NG" onerror="this.style.display='none'">
+    <span class="nav-logo-text">TradeFlow NG</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="traders.html">For Traders</a></li>
+    <li><a href="prices.html">Prices</a></li>
+    <li><a href="blog.html">Insights</a></li>
+    <li><a href="research.html" class="active">Research</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="https://tradeflow-agents.streamlit.app" class="nav-cta">Agent Login →</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Data & Research</div>
+      <h1>The <em>evidence base</em> behind TradeFlow NG</h1>
+      <p class="hero-sub">TradeFlow NG is not just a product — it is an applied research project grounded in peer-reviewed evidence, rigorous data methodology, and academic supervision. This page is for researchers, institutional partners, and funders who want to understand the science.</p>
+      <div class="hero-actions">
+        <a href="#methodology" class="btn-glow">Our Methodology</a>
+        <a href="#partnerships" class="btn-ghost">Partner With Us</a>
+      </div>
+    </div>
+    <div class="stats-panel">
+      <div class="stat-box"><div class="stat-n">32</div><div class="stat-l">Prophet models trained (8 states × 4 commodities)</div></div>
+      <div class="stat-box"><div class="stat-n">9</div><div class="stat-l">Database tables with full referential integrity</div></div>
+      <div class="stat-box"><div class="stat-n">15%</div><div class="stat-l">MAPE retraining threshold for Prophet models</div></div>
+      <div class="stat-box"><div class="stat-n">7-day</div><div class="stat-l">Forecast horizon with 80% confidence intervals</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<section class="methodology" id="methodology">
+  <div class="container">
+    <div class="section-tag">Methodology</div>
+    <h2 class="section-title">How the system works — technically</h2>
+    <p class="section-sub">Four interlocking modules, each grounded in established statistical and operations research methods.</p>
+
+    <div class="method-grid reveal">
+      <div class="method-card green">
+        <div class="method-icon">📋</div>
+        <h3>Data Collection & Cleaning</h3>
+        <p>Field agents submit weekly commodity prices via KoboToolbox — a validated mobile data collection platform used by UNHCR, WHO, and USAID globally. Raw submissions pass through a Z-score outlier detection pipeline: prices deviating more than 2.5 standard deviations from the state-commodity weekly mean are flagged for manual review before entering the cleaned dataset.</p>
+        <span class="method-tech">KoboToolbox · Z-score · SQLite/PostgreSQL</span>
+      </div>
+      <div class="method-card blue">
+        <div class="method-icon">📈</div>
+        <h3>Time Series Forecasting</h3>
+        <p>Facebook Prophet is used to generate 7-day price forecasts for each state-commodity pair (32 models total). Prophet decomposes price series into trend, weekly seasonality, and Nigerian public holiday effects. The 80% confidence interval is reported alongside every forecast. Models are evaluated weekly using Mean Absolute Percentage Error (MAPE) and retrained selectively when MAPE exceeds 15%.</p>
+        <span class="method-tech">Facebook Prophet · MAPE · Selective retraining</span>
+      </div>
+      <div class="method-card amber">
+        <div class="method-icon">⚙️</div>
+        <h3>Route Optimisation</h3>
+        <p>A linear programming model (PuLP with CBC solver) maximises a weighted combination of total profit (60%) and profit margin percentage (40%) across all viable commodity-corridor combinations. Constraints include supply availability, truck capacity (vehicle type dependent), perishability mixing restrictions, transport costs, and non-negativity. The solver runs weekly and produces a ranked set of trade recommendations.</p>
+        <span class="method-tech">PuLP · CBC Solver · Linear Programming</span>
+      </div>
+      <div class="method-card purple">
+        <div class="method-icon">🔄</div>
+        <h3>Feedback Loop & Retraining</h3>
+        <p>Traders log actual trade outcomes (real buy price, sell price, transport cost, quantity) through the platform's feedback module. These outcomes are incorporated into the cleaned_prices table as confirmed real-world price points. A daily scheduler evaluates forecast accuracy per commodity and triggers selective Prophet retraining when accuracy falls below threshold — creating a continuously improving system.</p>
+        <span class="method-tech">APScheduler · Feedback loop · Selective MAPE retraining</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE BASE -->
+<section class="evidence">
+  <div class="container">
+    <div class="section-tag">Evidence Base</div>
+    <h2 class="section-title">The research that grounds our approach</h2>
+    <p class="section-sub">TradeFlow NG's theory of change is grounded in peer-reviewed evidence from agricultural market information interventions in comparable contexts.</p>
+
+    <div class="evidence-grid reveal">
+      <div class="paper-card">
+        <span class="paper-type type-external">External — Foundational</span>
+        <h3>The Digital Provide: Information (Technology), Market Performance, and Welfare in the South Indian Fisheries Sector</h3>
+        <div class="paper-authors">Jensen, R. (2007)</div>
+        <div class="paper-journal">Quarterly Journal of Economics, 122(3), 879–924</div>
+        <div class="paper-relevance"><strong>Relevance:</strong> Demonstrates that mobile phone access — giving fishermen real-time price information — reduced price dispersion by 60–70% and increased profits by 8%. Establishes the causal pathway from information access to improved trader outcomes that TradeFlow NG extends.</div>
+      </div>
+      <div class="paper-card">
+        <span class="paper-type type-external">External — Foundational</span>
+        <h3>Information from Markets Near and Far: Mobile Phones and Agricultural Markets in Niger</h3>
+        <div class="paper-authors">Aker, J.C. (2010)</div>
+        <div class="paper-journal">American Economic Journal: Applied Economics, 2(3), 46–59</div>
+        <div class="paper-relevance"><strong>Relevance:</strong> Finds that mobile phone coverage in Niger reduced grain price dispersion by 10–16% and increased trader profits. Most comparable to TradeFlow NG's West African context and commodity focus.</div>
+      </div>
+      <div class="paper-card">
+        <span class="paper-type type-external">External — Context</span>
+        <h3>The Impact of Mobile Phone Coverage Expansion on Market Participation: Panel Data Evidence from Uganda</h3>
+        <div class="paper-authors">Muto, M. & Yamano, T. (2009)</div>
+        <div class="paper-journal">World Development, 37(12), 1887–1896</div>
+        <div class="paper-relevance"><strong>Relevance:</strong> Shows that market information access increased farmer market participation by 10 percentage points for perishable crops. Particularly relevant to TradeFlow NG's tomato and pepper commodity coverage.</div>
+      </div>
+      <div class="paper-card">
+        <span class="paper-type type-external">External — Benchmark</span>
+        <h3>Nigeria Post-Harvest Loss Assessment</h3>
+        <div class="paper-authors">FAO Nigeria (2022)</div>
+        <div class="paper-journal">Food and Agriculture Organization of the United Nations</div>
+        <div class="paper-relevance"><strong>Relevance:</strong> Provides the foundational estimate of ₦3.5 trillion annual post-harvest losses in Nigeria — establishing the scale of the problem TradeFlow NG addresses. Used in all grant applications and impact projections.</div>
+      </div>
+      <div class="paper-card">
+        <span class="paper-type type-internal">Internal — Ongoing</span>
+        <h3>TradeFlow NG System Documentation & Technical Summary</h3>
+        <div class="paper-authors">Adebisi, Q. (2026) · Supervised by Dr. R. A. Adeyemi</div>
+        <div class="paper-journal">Department of Statistics · University Project</div>
+        <div class="paper-relevance"><strong>Relevance:</strong> The formal technical documentation of the system architecture, optimization model, database schema, and forecasting methodology. Available to institutional partners on request.</div>
+      </div>
+      <div class="paper-card">
+        <span class="paper-type type-internal">Planned — 2026</span>
+        <h3>Does Algorithmic Route Recommendation Change Agricultural Trader Behaviour? Evidence from Nigeria</h3>
+        <div class="paper-authors">Adebisi, Q. · Co-authors TBD</div>
+        <div class="paper-journal">Target: Journal of Development Economics or similar</div>
+        <div class="paper-relevance"><strong>Relevance:</strong> The planned impact evaluation paper — measuring whether TradeFlow NG recommendations change routing decisions and improve trader incomes. Pre-registration and pilot data collection underway.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA SCHEMA -->
+<section class="schema">
+  <div class="container">
+    <div class="section-tag">Data Architecture</div>
+    <h2 class="section-title">What we collect and how it is structured</h2>
+
+    <div class="schema-inner reveal">
+      <div class="schema-text">
+        <p>TradeFlow NG operates a 9-table relational database (SQLite locally, PostgreSQL on Supabase in production) with full referential integrity. All data flows from raw field submissions through a validated cleaning pipeline before entering the analysis layer.</p>
+        <h3>Database tables</h3>
+        <div class="table-list">
+          <div class="table-item"><span class="table-name">states</span><span class="table-rows">8 records</span></div>
+          <div class="table-item"><span class="table-name">commodities</span><span class="table-rows">9 records</span></div>
+          <div class="table-item"><span class="table-name">corridors</span><span class="table-rows">12 records</span></div>
+          <div class="table-item"><span class="table-name">agents</span><span class="table-rows">Growing</span></div>
+          <div class="table-item"><span class="table-name">raw_submissions</span><span class="table-rows">Weekly ingest</span></div>
+          <div class="table-item"><span class="table-name">cleaned_prices</span><span class="table-rows">1,792+ records</span></div>
+          <div class="table-item"><span class="table-name">forecasts</span><span class="table-rows">7-day rolling</span></div>
+          <div class="table-item"><span class="table-name">optimization_runs</span><span class="table-rows">Weekly</span></div>
+          <div class="table-item"><span class="table-name">actual_outcomes</span><span class="table-rows">Feedback loop</span></div>
+        </div>
+      </div>
+      <div class="schema-visual">
+<span class="code-comment">-- Core data flow</span>
+<span class="code-table">raw_submissions</span>
+  <span class="code-field">id</span>          <span class="code-type">INTEGER PK</span>
+  <span class="code-field">agent_id</span>    <span class="code-type">FK → agents</span>
+  <span class="code-field">state_id</span>    <span class="code-type">FK → states</span>
+  <span class="code-field">commodity_id</span><span class="code-type">FK → commodities</span>
+  <span class="code-field">reported_price</span><span class="code-type">REAL</span>
+  <span class="code-field">submission_date</span><span class="code-type">DATE</span>
+
+<span class="code-table">cleaned_prices</span>
+  <span class="code-field">price_per_unit</span><span class="code-type">REAL NOT NULL</span>
+  <span class="code-field">is_outlier</span>  <span class="code-type">BOOLEAN</span>
+  <span class="code-field">is_confirmed</span><span class="code-type">BOOLEAN</span>
+
+<span class="code-table">forecasts</span>
+  <span class="code-field">forecast_date</span><span class="code-type">DATE</span>
+  <span class="code-field">predicted_price</span><span class="code-type">REAL</span>
+  <span class="code-field">lower_bound</span><span class="code-type">REAL</span>
+  <span class="code-field">upper_bound</span><span class="code-type">REAL</span>
+  <span class="code-field">is_shock_flagged</span><span class="code-type">BOOLEAN</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THEORY OF CHANGE -->
+<section class="toc">
+  <div class="toc-inner">
+    <div class="section-tag">Theory of Change</div>
+    <h2 class="section-title" style="color:white;">The causal pathway from data to impact</h2>
+    <p class="section-sub">How TradeFlow NG creates measurable improvement in trader incomes — step by step.</p>
+
+    <div class="toc-flow reveal">
+      <div class="toc-step">
+        <div class="toc-dot">📡</div>
+        <h4>Input: Field price data</h4>
+        <p>Agents submit verified commodity prices from 8 states weekly</p>
+      </div>
+      <div class="toc-step">
+        <div class="toc-dot">🧠</div>
+        <h4>Activity: AI forecasting</h4>
+        <p>Prophet generates 7-day price predictions per state-commodity pair</p>
+      </div>
+      <div class="toc-step">
+        <div class="toc-dot">⚙️</div>
+        <h4>Output: Trade recommendations</h4>
+        <p>LP optimizer produces ranked route recommendations with expected profit</p>
+      </div>
+      <div class="toc-step">
+        <div class="toc-dot">🚛</div>
+        <h4>Outcome: Better routing decisions</h4>
+        <p>Traders act on recommendations, reducing information-driven routing errors</p>
+      </div>
+      <div class="toc-step">
+        <div class="toc-dot">💰</div>
+        <h4>Impact: Higher trader incomes</h4>
+        <p>Improved margins → increased investment → better livelihoods</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT METRICS -->
+<section class="impact">
+  <div class="container">
+    <div class="section-tag">Impact Metrics We Track</div>
+    <h2 class="section-title">How we measure success</h2>
+    <p class="section-sub">These are the metrics we collect, report, and will use to evaluate the causal impact of TradeFlow NG.</p>
+
+    <div class="impact-grid reveal">
+      <div class="impact-card">
+        <div class="impact-n">MAPE</div>
+        <div class="impact-l">Forecast accuracy</div>
+        <div class="impact-sub">Mean Absolute Percentage Error of Prophet price forecasts vs actual agent-reported prices. Target: below 15% per commodity.</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-n">Δ Margin</div>
+        <div class="impact-l">Profit margin change</div>
+        <div class="impact-sub">Change in reported profit margin per trip for traders using TradeFlow NG recommendations vs their own pre-platform baseline.</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-n">SR%</div>
+        <div class="impact-l">Agent submission rate</div>
+        <div class="impact-sub">Percentage of required weekly submissions actually completed per agent. Target: 80%+ monthly. Proxy for data quality and network health.</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-n">Route Δ</div>
+        <div class="impact-l">Routing behaviour change</div>
+        <div class="impact-sub">Proportion of traders who change their planned route after receiving a TradeFlow NG recommendation. Key test of the theory of change.</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-n">BH%</div>
+        <div class="impact-l">Backhaul uptake rate</div>
+        <div class="impact-sub">Percentage of traders who successfully arrange a return load following a backhaul recommendation. Proxy for logistics efficiency gain.</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-n">MRR</div>
+        <div class="impact-l">Monthly recurring revenue</div>
+        <div class="impact-sub">Subscription revenue from paying trader clients. Sustainability metric — demonstrates the business model is viable without continued grant dependency.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERSHIPS -->
+<section class="partnerships" id="partnerships">
+  <div class="container">
+    <div class="section-tag">Research Partnerships</div>
+    <h2 class="section-title">How institutions can work with us</h2>
+    <p class="section-sub">We are actively seeking research and institutional partnerships that strengthen the evidence base and expand our reach.</p>
+
+    <div class="partner-grid reveal">
+      <div class="partner-card">
+        <span class="partner-type pt-academic">Academic</span>
+        <h3>Joint research & publication</h3>
+        <p>We welcome co-authorship opportunities with agricultural economics and development economics researchers. We have data; we need methodological partners for rigorous impact evaluation design.</p>
+        <div class="partner-ask">What we ask: Research design support, IRB/ethics guidance, co-authorship</div>
+      </div>
+      <div class="partner-card">
+        <span class="partner-type pt-ngo">NGO / Development</span>
+        <h3>Pilot integration</h3>
+        <p>Organisations with existing agricultural trader networks in Nigeria can integrate TradeFlow NG recommendations into their current programmes. We provide the technology; you provide trusted distribution channels.</p>
+        <div class="partner-ask">What we ask: Network access, outcome data sharing, co-branding</div>
+      </div>
+      <div class="partner-card">
+        <span class="partner-type pt-commercial">Commercial</span>
+        <h3>Data licensing</h3>
+        <p>Agricultural lenders, crop insurers, and commodity importers can license TradeFlow NG's anonymised price intelligence for risk modelling, procurement planning, and portfolio management.</p>
+        <div class="partner-ask">What we ask: Licensing fee, feedback on data utility for your use case</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="research-cta">
+  <h2>Interested in collaborating?</h2>
+  <p>Whether you are a researcher, development organisation, or institutional funder — we want to hear from you.</p>
+  <div class="cta-row">
+    <a href="about.html#contact" class="btn-white">Get In Touch →</a>
+    <a href="https://tradeflow-admin.streamlit.app" class="btn-outline">View the Platform</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">🌾 TradeFlow NG</span>
+    <div class="footer-links">
+      <a href="index.html">Home</a><a href="traders.html">Traders</a>
+      <a href="prices.html">Prices</a><a href="blog.html">Insights</a>
+      <a href="research.html">Research</a><a href="about.html">About</a>
+    </div>
+    <span class="footer-copy">© 2026 TradeFlow NG</span>
+  </div>
+</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(e=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('visible'),i*70);obs.unobserve(el.target);}});},{threshold:0.07});
+reveals.forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.querySelector('nav').style.padding=window.scrollY>60?'0.75rem 2rem':'1.1rem 2rem';});
+</script>
+</body>
+</html>
