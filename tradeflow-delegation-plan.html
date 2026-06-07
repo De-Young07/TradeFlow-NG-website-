@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TradeFlow NG — Delegation Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1a6b2e;
+    --green-light: #2d9b47;
+    --green-pale: #e8f5ec;
+    --gold: #c8922a;
+    --gold-light: #f5e6c8;
+    --dark: #0f1a13;
+    --mid: #2e3d32;
+    --gray: #5a6b5e;
+    --light: #f4f8f5;
+    --white: #ffffff;
+    --red-pale: #fdf0f0;
+    --red: #b83232;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  .header {
+    background: var(--dark);
+    padding: 48px 40px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(45,155,71,0.15), transparent 70%);
+  }
+
+  .header-tag {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green-light);
+    margin-bottom: 12px;
+  }
+
+  .header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(26px, 5vw, 40px);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .header h1 span { color: var(--green-light); }
+
+  .header p {
+    color: rgba(255,255,255,0.55);
+    font-size: 14px;
+    max-width: 500px;
+  }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(26,107,46,0.2);
+  }
+
+  .section-h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 6px;
+  }
+
+  .section-sub {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+
+  /* FOUNDER FOCUS BOX */
+  .founder-box {
+    background: var(--dark);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    border-left: 4px solid var(--green-light);
+    position: relative;
+  }
+
+  .founder-box h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--green-light);
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+
+  .founder-pillars {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  .founder-pill {
+    background: rgba(45,155,71,0.12);
+    border: 1px solid rgba(45,155,71,0.3);
+    color: var(--white);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  /* ROLE CARDS */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .role-card {
+    background: var(--white);
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s;
+  }
+
+  .role-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+
+  .role-header {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .role-accent {
+    width: 5px;
+    background: var(--green-light);
+    flex-shrink: 0;
+  }
+
+  .role-accent.gold { background: var(--gold); }
+  .role-accent.teal { background: #2a9b8b; }
+  .role-accent.blue { background: #3a6baf; }
+  .role-accent.purple { background: #7b4ca8; }
+
+  .role-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 20px 16px;
+    flex: 1;
+    gap: 12px;
+  }
+
+  .role-person {
+    flex: 1;
+  }
+
+  .role-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 2px;
+  }
+
+  .role-title {
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+  .role-badge {
+    background: var(--green-pale);
+    color: var(--green);
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .role-badge.lead {
+    background: var(--gold-light);
+    color: var(--gold);
+  }
+
+  .role-body {
+    padding: 0 20px 20px 25px;
+  }
+
+  .role-function {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--mid);
+    margin-bottom: 8px;
+  }
+
+  .role-tasks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .role-tasks li {
+    font-size: 13.5px;
+    color: var(--gray);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .role-tasks li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--green-light);
+    font-size: 12px;
+  }
+
+  /* ANNOUNCEMENT MESSAGE */
+  .announcement-box {
+    background: var(--white);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 16px;
+    padding: 28px 28px;
+    margin-bottom: 48px;
+  }
+
+  .announcement-box .label {
+    font-family: 'Syne', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .announcement-box blockquote {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--mid);
+    white-space: pre-line;
+    border-left: 3px solid var(--green-pale);
+    padding-left: 18px;
+  }
+
+  /* GAPS SECTION */
+  .gap-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .gap-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 22px 24px;
+    border: 1px solid rgba(0,0,0,0.07);
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .gap-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--green-pale);
+    line-height: 1;
+    -webkit-text-stroke: 1.5px var(--green);
+  }
+
+  .gap-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 5px;
+  }
+
+  .gap-desc {
+    font-size: 13.5px;
+    color: var(--gray);
+    margin-bottom: 10px;
+    line-height: 1.6;
+  }
+
+  .gap-how {
+    background: var(--green-pale);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--green);
+    line-height: 1.55;
+  }
+
+  .gap-how strong {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 3px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* SECTION SPACING */
+  .section { margin-bottom: 48px; }
+
+  .divider {
+    height: 1px;
+    background: rgba(0,0,0,0.07);
+    margin: 40px 0;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-tag">TradeFlow NG · Internal</div>
+  <h1>Delegation Plan &<br><span>Team Structure</span></h1>
+</div>
+
+<div class="container">
+
+  <!-- FOUNDER FOCUS -->
+  <div class="section">
+    <div class="section-title">Founder's Domain</div>
+    <div class="founder-box">
+      <h3>Quadri handles only these two things</h3>
+      <p style="color:rgba(255,255,255,0.6); font-size:14px; margin-bottom:14px;">Everything else belongs to the team. This is not an abdication — it's the highest-leverage use of your time.</p>
+      <div class="founder-pillars">
+        <span class="founder-pill">🔧 Platform & System Improvement</span>
+        <span class="founder-pill">💰 Grant Writing & Funding</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELEGATION ROLES -->
+  <div class="section">
+    <div class="section-title">Team Roles & Ownership</div>
+    <div class="section-h2">Who Owns What</div>
+    <p class="section-sub">Each person owns their domain. Not "helps with" — owns. They make decisions, they create output, they report outcomes.</p>
+
+    <div class="roles-grid">
+
+      <!-- Elijah — Team Lead -->
+      <div class="role-card">
+        <div class="role-header">
+          <div class="role-accent gold"></div>
+          <div class="role-top">
+            <div class="role-person">
+              <div class="role-name">Elijah Essang</div>
+              <div class="role-title">The Stoic · Systems thinker, growth optimizer</div>
+            </div>
+            <div class="role-badge lead">TEAM LEAD</div>
+          </div>
+        </div>
+        <div class="role-body">
+          <div class="role-function">Internal Coordination & Quality Control</div>
+          <ul class="role-tasks">
+            <li>Oversees the team's weekly rhythm — check-ins, blockers, and accountability</li>
+            <li>Reviews all output before it goes public or gets submitted</li>
+            <li>Flags problems, proposes solutions, escalates to Quadri only when truly necessary</li>
+            <li>Keeps the team's morale honest and grounded</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Oladele — Community + Data -->
+      <div class="role-card">
+        <div class="role-header">
+          <div class="role-accent teal"></div>
+          <div class="role-top">
+            <div class="role-person">
+              <div class="role-name">Oladele Stephen</div>
+              <div class="role-title">Data Analyst · Community Manager · Newscaster</div>
+            </div>
+            <div class="role-badge">DATA + COMMUNITY</div>
+          </div>
+        </div>
+        <div class="role-body">
+          <div class="role-function">Data Coordination & Community Management</div>
+          <ul class="role-tasks">
+            <li>Follows up with field agents and colleagues on data submissions — he's the direct contact, not Quadri</li>
+            <li>Flags submission gaps and reports weekly data health to Elijah</li>
+            <li>Manages community channels (WhatsApp, Telegram, etc.) and audience engagement</li>
+            <li>Delivers market news updates in audio/text format for the platform</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Jude + Timothy — Content -->
+      <div class="role-card">
+        <div class="role-header">
+          <div class="role-accent"></div>
+          <div class="role-top">
+            <div class="role-person">
+              <div class="role-name">Jude Gomina + Timothy Aborode</div>
+              <div class="role-title">Writer + Designer/Creator</div>
+            </div>
+            <div class="role-badge">CONTENT UNIT</div>
+          </div>
+        </div>
+        <div class="role-body">
+          <div class="role-function">Content, Visuals & Social Media</div>
+          <ul class="role-tasks">
+            <li>Jude writes all long-form content: blog posts, newsletters, grant-supporting articles, platform copy</li>
+            <li>Timothy handles all graphics, social media visuals, infographics, and geo-visualizations</li>
+            <li>Together they run and maintain all social media accounts (LinkedIn, Faceboo, Instagram & Tiktok)</li>
+            <li>They define and protect the visual identity of TradeFlow NG</li>
+             <li>They'll definitely need our help every step of the wwy, so let's endevour to help.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Maryam — Video -->
+      <div class="role-card">
+        <div class="role-header">
+          <div class="role-accent blue"></div>
+          <div class="role-top">
+            <div class="role-person">
+              <div class="role-name">Daniel Ibitowa</div>
+              <div class="role-title">Video Content Creator</div>
+            </div>
+            <div class="role-badge">VIDEO and ADVERTS</div>
+          </div>
+        </div>
+        <div class="role-body">
+          <div class="role-function">Video Production</div>
+          <ul class="role-tasks">
+            <li>Creates all short-form and long-form video content: explainers, demos, market updates</li>
+            <li>Manages the YouTube or video presence for TradeFlow NG</li>
+            <li>Collaborates with Jude and Timothy for video-content alignment</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Emmanuel + Daniel — Growth + Outreach -->
+      <div class="role-card">
+        <div class="role-header">
+          <div class="role-accent purple"></div>
+          <div class="role-top">
+            <div class="role-person">
+              <div class="role-name">Emmanuel Akunne</div>
+              <div class="role-title">Community Builder</div>
+            </div>
+            <div class="role-badge">GROWTH + VISIBILITY</div>
+          </div>
+        </div>
+        <div class="role-body">
+          <div class="role-function">Positioning & Growth</div>
+          <ul class="role-tasks">
+            <li>Emmanuel leads growth strategy: partnerships, referrals, new community connections</li>
+            <li>Report market positioning insights back to Elijah weekly</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Habeeb + Sodiq + Kushimo — Support -->
+      <div class="role-card">
+        <div class="role-header">
+          <div class="role-accent gold"></div>
+          <div class="role-top">
+            <div class="role-person">
+              <div class="role-name">Habeebullahi Raji · Sodiq Yusuf · Kushimo Quam</div>
+              <div class="role-title">EdTech / AI · Growth · Learning contributor</div>
+            </div>
+            <div class="role-badge">FLEX + SUPPORT</div>
+          </div>
+        </div>
+        <div class="role-body">
+          <div class="role-function">Ads, Positioning & Cross-Functional Support</div>
+          <ul class="role-tasks">
+            <li>Habeeb owns digital ads and AI-assisted campaign execution — he understands the tech side</li>
+            <li>Sodiq focuses on growth tracking: what's working, what's not, reporting growth metrics</li>
+            <li>Kushimo supports wherever bandwidth is needed — content amplification, research, admin tasks</li>
+            <li>All three report to Elijah and are cross-deployed based on priority</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ANNOUNCEMENT MESSAGE -->
+  <div class="section">
+    <div class="section-h2">The Message to the Team</div>
+    <div class="announcement-box">
+      <blockquote>Hey team,
+
+I want to be honest with you all.
+
+I've been carrying too much, and in doing so, I haven't been giving you the room to actually lead. That changes now.
+
+TradeFlow NG is growing beyond what one person can manage well. So I'm restructuring how we work — not by piling more on you, but by giving each of you a domain that's yours. Real ownership. Real decisions. Real impact.
+
+I'll be focusing entirely on two things: improving the platform and securing funding. Everything else — content, community, data coordination, video, growth, field work, social media — belongs to you.
+
+This isn't me checking out. It's me trusting you to run your part of this properly.
+
+I'll be sharing individual roles with each of you. I want you to read yours, think about it honestly, and tell me: does this fit? Is there anything you need to do it well?
+
+You're not just contributors. You're the team that makes this real. Let's build this properly, together.
+
+— Quadri</blockquote>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TEAM GAPS -->
+  <div class="section">
+    <div class="section-title">What's Missing</div>
+    <div class="section-h2">5 Critical Team Gaps</div>
+    <p class="section-sub">These are the holes that will limit growth if not filled. If you have any recommendation for us, kindly reach out to me directly.</p>
+
+    <div class="gap-list">
+
+      <div class="gap-card">
+        <div class="gap-number">01</div>
+        <div>
+          <div class="gap-title">A Technical Co-founder or Lead Developer</div>
+          <div class="gap-desc">Currently, we have only one technical person on the team. That's a single point of failure for the entire platform. If the person occupied with other tasks, platform development stalls completely.</div>
+        </div>
+      </div>
+
+      <div class="gap-card">
+        <div class="gap-number">02</div>
+        <div>
+          <div class="gap-title">A Business Development / Partnerships Person</div>
+          <div class="gap-desc">Nobody on the team is specifically tasked with closing deals — onboarding paying traders, negotiating with cooperatives, or landing institutional relationships. Emmanuel does community, but BD requires a different muscle.</div>
+        </div>
+      </div>
+
+      <div class="gap-card">
+        <div class="gap-number">03</div>
+        <div>
+          <div class="gap-title">A Formal Financial / Operations Manager</div>
+          <div class="gap-desc">When grant funds arrive and brokerage revenue starts flowing, we need someone who can manage disbursements, track expenses, and ensure financial accountability. Right now, this falls back on the CTO by default.</div>
+        </div>
+      </div>
+
+      <div class="gap-card">
+        <div class="gap-number">04</div>
+        <div>
+          <div class="gap-title">A Legal / Compliance Advisor (Even Informal)</div>
+          <div class="gap-desc">As we do brokerage, handle agent agreements, and apply for grants, we're operating in legal territory without coverage. Agent contracts, data usage rights, and commodity trading regulations can create real problems without guidance.</div>
+        </div>
+      </div>
+
+      <div class="gap-card">
+        <div class="gap-number">05</div>
+        <div>
+          <div class="gap-title">A Senior Advisor / Industry Mentor</div>
+          <div class="gap-desc">We have domain specialists being onboarded (economist, agronomist), but we don't have a senior figure — someone who has moved commodities, run agri-businesses, or navigated Nigerian market infrastructure — giving us strategic guidance and opening doors.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
